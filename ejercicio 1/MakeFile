@@ -1,0 +1,17 @@
+# Definición de variables
+CC=gcc
+CFLAGS=-std=gnu89 -Wall -pedantic-errors -O3
+
+# Nombre del ejecutable
+TARGET=programa
+
+# Regla por defecto
+all: $(TARGET)
+
+# Cómo construir el ejecutable
+$(TARGET): $(TARGET).c
+	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c
+
+# Regla para limpiar archivos generados
+clean:
+	rm -f $(TARGET)
