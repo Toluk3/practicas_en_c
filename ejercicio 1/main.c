@@ -28,22 +28,23 @@ void produce() {
 
 void consume() {
     char line[20];
-    FILE *file;
-    
-    abrirArchivoLectura(FILE_NAME);
+    FILE *file = abrirArchivoLectura(FILE_NAME);
     if (file == NULL) {
         exit(1);  
     }
 
-    
     while (fgets(line, sizeof(line), file) != NULL) {
-        printf("Consumiendo: %s", line);
+        
+        
+        
+        printf("Consumiendo: %s\n", line);
     }
 
     fclose(file);
 }
 
 int main() {
+    printf("hola\n");
     produce();  
     consume();  
 
