@@ -1,0 +1,19 @@
+#include "stdio.h"
+#include "stdlib.h"
+#include "funciones.h"
+#include "time.h"
+
+int createrandom()
+{
+	int num=0,min=0,max=0;
+	printf("Ingrese el minimo: \n");
+	scanf("%d",&min);
+	printf("Ingrese el maximo: \n");
+	scanf("%d",&max);
+	srand(time(0));
+	num = (rand() % (min - max + 1)) + min;
+
+	return num;
+}
+
+

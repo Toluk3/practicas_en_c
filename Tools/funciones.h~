@@ -1,0 +1,7 @@
+#ifndef _funciones
+#define _funciones
+
+int createrandom();
+
+
+#endif

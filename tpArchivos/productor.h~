@@ -1,0 +1,6 @@
+#ifndef _PRODUCTOR
+#define _PRODUCTOR
+FILE *producto;
+void ingresaProducto(int numeroProducto);
+
+#endif
