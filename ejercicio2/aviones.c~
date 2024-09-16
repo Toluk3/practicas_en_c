@@ -1,0 +1,62 @@
+#include "stdlib.h"
+#include "stdio.h"
+#include "unistd.h"
+#include "funciones.h"
+#include "archivo.h"
+#include "semaforos.h"
+#include "def.h"
+
+void ingresaVuelo(int numero_de_vuelo){
+	if (openfile("vuelos.txt") == TRUE){
+		fprintf(archivo,"%02d-ciudad...\n", numero_de_vuelo);
+		fclose(archivo);
+	}else{
+
+	}
+
+}
+
+/*
+struct aviones{
+int numero;
+char ciudad[LARGO_CADENA]
+};
+*/
+int main (){
+	
+	
+	int num = 0; 
+	int id_semaforo = 0;
+	/*char ciudad[LARGO_CADENA];*/
+	
+	id_semaforo = creo_semaforo();
+	inicia_semaforo(id_semaforo,VERDE);
+	if (openfileclean("vuelos.txt") == TRUE){
+		fclose(archivo);
+	}else{
+
+	}
+	while (1)
+	{
+		printf("ingreso numero de vuelo ");
+		
+		printf("ingreso ciudad ");
+		/*scanf("%s",&ciudad);*/
+		if (num == 0){
+		elimina_semaforo(id_semaforo);
+		return 1;		
+		}else{}
+		/*memset(ciudad,0x00,sizeof(ciudad));*/
+		espera_semaforo(id_semaforo);
+		/*CARGAR EN ARCHIVO*/
+		scanf("%d",&num);
+		ingresaVuelo(num);
+		levanta_semaforo(id_semaforo);
+		
+		
+		usleep(1000);
+	}
+}
+
+
+
