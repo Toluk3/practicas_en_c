@@ -81,7 +81,47 @@ void mostrarArreglo(int arreglo[10],int longitudArreglo){
 
 
 }
+//funcion que le envias string, separador y posicion para que te retorne el string correspondiente de la posicion pos1-pos2
+void StringPosicionT(char *string, const char *separador, int posicion, char *retorno) {
+    
+    int longitud_separador = strlen(separador); 
+    int contador_posicion = 0; 
+    int inicio = 0; 
+    int i = 0; 
+	int j = 0;
+	char *resultado; 
+	resultado=(char *)malloc(100 * sizeof(char));
 
+	if (resultado == NULL) {
+        // Si no se puede asignar memoria, retornar NULL
+        return;
+    }
+	memset(resultado, 0x00, sizeof(resultado));
 
+    for (i = 0; string[i] != '\0'; i++) {
+        if (strncmp(&string[i], separador, longitud_separador) == 0) {
+            if (contador_posicion == posicion) { 
+                resultado[j] = '\0'; 
+                strcpy(retorno, resultado);
+				free(resultado);
+				return;
+            }
+            contador_posicion++;
+            i += longitud_separador - 1; 
+            j = 0; 
+        } else {
+            resultado[j++] = string[i];
+        }
+    }
+    if (contador_posicion == posicion) {
+        resultado[j] = '\0';
+
+        strcpy(retorno, resultado);
+		free(resultado);
+		return;
+    }
+	free(resultado);
+    return; 
+}
 
 

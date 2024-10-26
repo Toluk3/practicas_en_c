@@ -7,8 +7,8 @@
 #include "def.h"
 
 void ingresaVuelo(int numero_de_vuelo, char ciudad[LARGO_CADENA]){
-	if (openfile("vuelos.txt") == TRUE){
-		fprintf(archivo,"%02d-%s...\n", numero_de_vuelo, ciudad);
+	if (openfile("vuelos.dat") == TRUE){
+		fprintf(archivo,"%02d-%s", numero_de_vuelo, ciudad);
 		memset(ciudad,0x00,sizeof(ciudad));
 		fclose(archivo);
 	}else{
@@ -27,7 +27,7 @@ int main (){
 	
 	id_semaforo = creo_semaforo();
 	inicia_semaforo(id_semaforo,VERDE);
-	if (openfile("vuelos.txt") == TRUE){
+	if (openfile("vuelos.dat") == TRUE){
 		fclose(archivo);
 	}else{
 
